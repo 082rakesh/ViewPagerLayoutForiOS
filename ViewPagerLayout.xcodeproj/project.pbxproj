@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1615AE7623E9DF75009BFBD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AE7523E9DF75009BFBD5 /* AppDelegate.swift */; };
-		1615AE7823E9DF75009BFBD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AE7723E9DF75009BFBD5 /* SceneDelegate.swift */; };
 		1615AE7A23E9DF75009BFBD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AE7923E9DF75009BFBD5 /* ViewController.swift */; };
 		1615AE7D23E9DF75009BFBD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1615AE7B23E9DF75009BFBD5 /* Main.storyboard */; };
 		1615AE7F23E9DF77009BFBD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1615AE7E23E9DF77009BFBD5 /* Assets.xcassets */; };
 		1615AE8223E9DF77009BFBD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1615AE8023E9DF77009BFBD5 /* LaunchScreen.storyboard */; };
 		1615AE8D23E9DF77009BFBD5 /* ViewPagerLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AE8C23E9DF77009BFBD5 /* ViewPagerLayoutTests.swift */; };
 		1615AE9823E9DF77009BFBD5 /* ViewPagerLayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AE9723E9DF77009BFBD5 /* ViewPagerLayoutUITests.swift */; };
+		1615AEA623E9E085009BFBD5 /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AEA523E9E085009BFBD5 /* PagerView.swift */; };
+		1615AEE423EA99E2009BFBD5 /* PagerItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615AEE323EA99E2009BFBD5 /* PagerItemCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		1615AE7223E9DF75009BFBD5 /* ViewPagerLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewPagerLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1615AE7523E9DF75009BFBD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1615AE7723E9DF75009BFBD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1615AE7923E9DF75009BFBD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1615AE7C23E9DF75009BFBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1615AE7E23E9DF77009BFBD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		1615AE9323E9DF77009BFBD5 /* ViewPagerLayoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewPagerLayoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1615AE9723E9DF77009BFBD5 /* ViewPagerLayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPagerLayoutUITests.swift; sourceTree = "<group>"; };
 		1615AE9923E9DF77009BFBD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1615AEA523E9E085009BFBD5 /* PagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
+		1615AEE323EA99E2009BFBD5 /* PagerItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerItemCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				1615AE7523E9DF75009BFBD5 /* AppDelegate.swift */,
-				1615AE7723E9DF75009BFBD5 /* SceneDelegate.swift */,
 				1615AE7923E9DF75009BFBD5 /* ViewController.swift */,
 				1615AE7B23E9DF75009BFBD5 /* Main.storyboard */,
 				1615AE7E23E9DF77009BFBD5 /* Assets.xcassets */,
 				1615AE8023E9DF77009BFBD5 /* LaunchScreen.storyboard */,
 				1615AE8323E9DF77009BFBD5 /* Info.plist */,
+				1615AEA523E9E085009BFBD5 /* PagerView.swift */,
+				1615AEE323EA99E2009BFBD5 /* PagerItemCollectionCell.swift */,
 			);
 			path = ViewPagerLayout;
 			sourceTree = "<group>";
@@ -260,8 +263,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1615AE7A23E9DF75009BFBD5 /* ViewController.swift in Sources */,
+				1615AEA623E9E085009BFBD5 /* PagerView.swift in Sources */,
+				1615AEE423EA99E2009BFBD5 /* PagerItemCollectionCell.swift in Sources */,
 				1615AE7623E9DF75009BFBD5 /* AppDelegate.swift in Sources */,
-				1615AE7823E9DF75009BFBD5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
