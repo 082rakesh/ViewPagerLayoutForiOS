@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol PagerViewDelegate: class {
+    func didSelectPagerTabItem(at index: Int)
+}
+
 class PagerView: UIView {
-    
     private let trailingTitleInset = 50.0
-    let pagerItems = ["Testing large content", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "item9", "item10"]
+    private let cellIdentifier = "reusableCell"
+    private let pagerItems = ["Testing large content", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "item9", "item10"]
+    weak var delegate: PagerViewDelegate?
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -41,7 +46,7 @@ class PagerView: UIView {
         addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(PagerItemCollectionCell.self, forCellWithReuseIdentifier: "reusableCell")
+        collectionView.register(PagerItemCollectionCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -61,7 +66,7 @@ extension PagerView: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reusableCell", for: indexPath) as? PagerItemCollectionCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PagerItemCollectionCell
             else { return UICollectionViewCell() }
         cell.setupItemLabel(with: pagerItems[indexPath.item])
         return cell
@@ -73,7 +78,7 @@ extension PagerView: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("select at: \(pagerItems[indexPath.item])")
+        delegate?.didSelectPagerTabItem(at: indexPath.item)
     }
     
     func itemWidth(at indexPath: IndexPath) -> CGFloat {

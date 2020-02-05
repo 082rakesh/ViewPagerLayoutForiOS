@@ -13,13 +13,14 @@ class ViewController: UIViewController {
     private lazy var pagerView: PagerView = {
         let pageView = PagerView(frame: .zero)
         pageView.backgroundColor = .green
+        pageView.delegate = self
         return pageView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.addSubview(pagerView)
+        view.addSubview(pagerView)
         setupViewPagerConstraints()
     }
 
@@ -31,11 +32,14 @@ class ViewController: UIViewController {
             pagerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             pagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
             pagerView.heightAnchor.constraint(equalToConstant: 100.0)
-
-
-            
-        
         ])
     }
 }
 
+extension ViewController: PagerViewDelegate {
+
+    func didSelectPagerTabItem(at index: Int) {
+        print("selected tab item at index: \(index)")
+    }
+    
+}
