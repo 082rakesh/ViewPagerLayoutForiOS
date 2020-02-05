@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let pagerItems = ["Testing large content", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "item9", "item10"]
+
     private lazy var pagerView: PagerView = {
-        let pageView = PagerView(frame: .zero)
+        let pageView = PagerView(tabItems: self.pagerItems)
         pageView.backgroundColor = .green
         pageView.delegate = self
         return pageView

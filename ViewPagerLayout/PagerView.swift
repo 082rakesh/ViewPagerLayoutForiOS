@@ -15,7 +15,7 @@ protocol PagerViewDelegate: class {
 class PagerView: UIView {
     private let trailingTitleInset = 50.0
     private let cellIdentifier = "reusableCell"
-    private let pagerItems = ["Testing large content", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "item9", "item10"]
+    private let pagerItems: [String]
     weak var delegate: PagerViewDelegate?
 
     private lazy var collectionView: UICollectionView = {
@@ -28,8 +28,9 @@ class PagerView: UIView {
 
         return lCollectionView
     }()
-
-    override init(frame: CGRect) {
+    
+    init(tabItems: [String]) {
+        self.pagerItems = tabItems
         super.init(frame: .zero)
         setupCollectionView()
     }
@@ -42,12 +43,11 @@ class PagerView: UIView {
         collectionView.backgroundColor = .red
         collectionView.dataSource = self
         collectionView.delegate = self
-
         addSubview(collectionView)
-        
+
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(PagerItemCollectionCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
