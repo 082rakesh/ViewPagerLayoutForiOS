@@ -25,7 +25,6 @@ class PagerView: UIView {
 
         let lCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         lCollectionView.showsHorizontalScrollIndicator = false
-
         return lCollectionView
     }()
     
@@ -40,7 +39,7 @@ class PagerView: UIView {
     }
 
     private func setupCollectionView() {
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .gray
         collectionView.dataSource = self
         collectionView.delegate = self
         addSubview(collectionView)

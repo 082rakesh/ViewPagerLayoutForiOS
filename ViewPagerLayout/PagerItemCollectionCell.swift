@@ -16,7 +16,13 @@ class PagerItemCollectionCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.backgroundColor = .yellow
+        label.backgroundColor = .white
+        return label
+    }()
+
+    private lazy var itemBorder: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.backgroundColor = .black
         return label
     }()
 
@@ -31,13 +37,30 @@ class PagerItemCollectionCell: UICollectionViewCell {
 
     private func setupViews() {
         addSubview(itemLabel)
+        addSubview(itemBorder)
+        setupItemLabelConstraints()
+        setupItemBorderConstraints()
+    }
+    
+    private func setupItemLabelConstraints() {
         itemLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             itemLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 2.5),
             itemLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0.0),
             itemLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0.0),
-            itemLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -2.5)
+        ])
+    }
+
+    private func setupItemBorderConstraints() {
+        itemBorder.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            itemBorder.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 2.5),
+            itemBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0.0),
+            itemBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0.0),
+            itemBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -0.0),
+            itemBorder.heightAnchor.constraint(equalToConstant: 2.0)
         ])
     }
 

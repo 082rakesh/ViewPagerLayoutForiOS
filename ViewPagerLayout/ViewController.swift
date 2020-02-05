@@ -14,7 +14,6 @@ class ViewController: UIViewController {
 
     private lazy var pagerView: PagerView = {
         let pageView = PagerView(tabItems: self.pagerItems)
-        pageView.backgroundColor = .green
         pageView.delegate = self
         return pageView
     }()
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
             pagerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0),
             pagerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
             pagerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            pagerView.heightAnchor.constraint(equalToConstant: 100.0)
+            pagerView.heightAnchor.constraint(equalToConstant: 75.0)
         ])
     }
 }
@@ -43,5 +42,4 @@ extension ViewController: PagerViewDelegate {
     func didSelectPagerTabItem(at index: Int) {
         print("selected tab item at index: \(index)")
     }
-    
 }
