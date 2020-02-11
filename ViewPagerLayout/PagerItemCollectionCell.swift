@@ -17,6 +17,7 @@ class PagerItemCollectionCell: UICollectionViewCell {
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.backgroundColor = .white
+
         return label
     }()
 
@@ -25,6 +26,12 @@ class PagerItemCollectionCell: UICollectionViewCell {
         label.backgroundColor = .black
         return label
     }()
+
+    var textColor: UIColor = .black {
+        didSet {
+            itemLabel.textColor = textColor
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
